@@ -1,0 +1,150 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+jitendra lodhi
+
+{% endblock %}
+
+{% block css %}
+
+#more {
+display: none;
+}
+
+{% endblock %}
+
+{% block body %}
+
+<!--================Header Menu Area =================-->
+
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+	<div class="box_1220">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div class="banner_content text-center  wow animate__animated animate__zoomIn animate__slow 2s ">
+					<h2>Projects</h2>
+					<div class="page_link">
+						<a href="/">Home</a>
+						<a href="/projects">projects</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="feature_area white_feature p_220">
+	<div class="container">
+		<div class="main_title">
+			<h2>Projects</h2>
+			<p>Here are some project I woked on while learning web development </p>
+		</div>
+		<div class="feature_inner row ">
+
+			<div class="col-lg-4 col-md-6  wow animate__animated animate__zoomIn animate__slow 2s">
+				<img class="card-img-top " src="static/screenshot/tenstore.png" alt="Card image cap">
+				<div class="feature_item">
+					<h4>E-commerce Website</h4>
+					<p> This is dynamic E-commerce website you can buy products and also
+						you can track you order status <span id="dots">....</span> <span id="more">
+							This website include backend with SQLlite database
+							all the changes of products and orders can be done using Admin panel <br>
+							You can visit site by the link This is just for demo purpose Any payment integration is not
+							included.</span> </p>
+
+					<button  style="border-radius: 8px; background: transparent; margin-top: 15px;" onclick="myFunction()"
+						id="myBtn">Read more</button>
+
+
+					<div class="more_btn">
+						<a class="main_btn" href="/projects">View on Github</a>
+						<a class="main_btn" href="http://13.233.230.195/shop/">visit site</a>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6  wow animate__animated animate__zoomIn animate__slow 2s">
+				<img class="card-img-top" src="static/screenshot/typingnew.png" alt="Card image cap">
+				<div class="feature_item">
+					<h4>Typing website</h4>
+					<p> This website is created for Typing practice, here you can test your typing speed
+						this website use API for displaying sentences in website.
+					</p>
+					<div class="more_btn">
+						<a class="main_btn" href="/projects">View on Github</a>
+						<a class="main_btn" href="https://jitendralodhi.000webhostapp.com/">visit site</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6  wow animate__animated animate__zoomIn animate__slow 2s">
+				<img class="card-img-top" src="static/screenshot/portfolio.jpg" alt="Card image cap">
+				<div class="feature_item">
+
+					<h4>portfolio</h4>
+					<p> This is a portfolio website created for personal use. developed using Django , Bootstrap and MYSQL 
+						it a current portfolio you are watching now. 
+						
+					</p>
+					<div class="more_btn">
+						<a class="main_btn" href="/projects">View on Github</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6  wow animate__animated animate__zoomIn animate__slow 2s">
+				<img class="card-img-top" src="static/screenshot/notepad.png" alt="Card image cap">
+				<div class="feature_item">
+
+					<h4>Notepad lite</h4>
+					<p> Its an notepad app created using python Tkinter module it also provide feature of saving and existing file 
+						</p>
+					<div class="more_btn">
+						<a class="main_btn" href="/projects">View on Github</a>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6  wow animate__animated animate__zoomIn animate__slow 2s">
+				<img class="card-img-top" src="static/screenshot/Calculator.png" alt="Card image cap">
+				<div class="feature_item">
+
+					<h4>Calculator </h4>
+					<p> This is a simple calculator program created using python language it can perform simple calculation 
+						also include error handling on wrong input 
+					</p>
+					<div class="more_btn">
+						<a class="main_btn" href="/projects">View on Github</a>
+						
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+<!--================End Feature Area =================-->
+
+
+{% block js %}
+<script>
+	function myFunction() {
+		var dots = document.getElementById("dots");
+		var moreText = document.getElementById("more");
+		var btnText = document.getElementById("myBtn");
+
+		if (dots.style.display === "none") {
+			dots.style.display = "inline";
+			btnText.innerHTML = "Read more";
+			moreText.style.display = "none";
+		} else {
+			dots.style.display = "none";
+			btnText.innerHTML = "Read less";
+			moreText.style.display = "inline";
+		}
+	}
+</script>
+
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+jitendra lodhi
+
+{% endblock %}
+
+{% block home %} active {% endblock %}
+
+
+
+{% block body %}
+
+<!--================Header Menu Area =================-->
+
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+  <div class="box_1220">
+    <div class="banner_inner d-flex align-items-center wow animate__animated animate__zoomIn animate__slow 2s">
+      <div class="container">
+        <div class="banner_content text-center">
+          <h2>Contact Me</h2>
+          <div class="page_link">
+            <a href="/">Home</a>
+            <a href="/contact">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================End Home Banner Area =================-->
+<div class="container w-80 ">
+
+  <div class="alert alert" role="alert">
+    <h4 style="color: black; text-align: center;"
+      class="alert-heading  wow animate__animated animate__fadeInUp animate__slow	2s  " id="show-message">Lets
+      Talk....!</h4>
+
+  </div>
+  <form action="/contact" method="post" id="usermsg">{% csrf_token %}
+    <div class="form-group  wow animate__animated animate__fadeInUp animate__slow	2s">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name='name' placeholder="Enter Your Name">
+    </div>
+    <div class="form-group wow animate__animated animate__fadeInUp animate__slow	2s">
+      <label for="name">Email</label>
+      <input type="email" class="form-control" id="email" name='email' placeholder="Enter Your Email">
+    </div>
+
+    <div class="form-group wow animate__animated animate__fadeInUp animate__slow	2s">
+      <label for="name">Phone</label>
+      <input type="tel" class="form-control" id="phone" name='phone' placeholder="Enter Your Phone Number">
+    </div>
+
+
+    <div class="form-group wow animate__animated animate__fadeInUp animate__slow	2s">
+      <label for="desc">What is your message ...</label>
+      <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success " id="send message" style="margin:10px " onclick="message()"><span
+        id="msg"> Send message</span>
+    </button>
+  </form>
+</div>
+<!--================Contact Area =================-->
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+  function message() {
+
+
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var desc = document.getElementById('desc').value;
+
+
+
+
+    console.log(name, email, phone, desc);
+    if (name == '')
+      alert("please provide Name...!😐😐")
+    else if (email == '')
+      alert(" Please provide email id...!📧")
+    else if (phone == '')
+      alert(" please provide phone Number...!📱")
+
+    else if (desc == '')
+      alert("plz say something Message cannot be empty...!😊")
+
+    else
+
+  
+  // < !--jquery to show message on submit-- >
+
+      $(function () {
+        $("#show-message").html(" Message Recievd ✅ I will get in touch ASAP...!😀")
+
+        $("#msg").html(" Message Recievd ")
+
+
+      })
+
+  }
+
+  
+  // < !--this code is for submitting data without refreshing the page..  -- >
+
+    $(document).on('submit', '#usermsg', function (e) {
+      e.preventDefault();
+
+
+
+      $.ajax({
+        type: 'POST',
+        url: '/contact',
+        data: {
+          name: $('#name').val(),
+          email: $('#email').val(),
+          phone: $('#phone').val(),
+          desc: $('#desc').val(),
+          'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+
+        },
+      })
+
+        // < !--jquery to clear fields-- >
+          $('#name').val('');
+      $('#email').val('');
+      $('#phone').val('');
+      $('#desc').val('');
+
+
+    })
+
+
+</script>
+
+
+{% endblock %}
